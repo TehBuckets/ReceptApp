@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="receptapp.addRecipe">
+    <top>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Mentés" />
+                                <MenuItem mnemonicParsing="false" text="Kilépés" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Szerkesztés">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Törlés" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Segítség">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Rólunk" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label contentDisplay="TOP" text="Recept felvétele" translateX="300.0">
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Receptnév" />
+                <TextField prefHeight="25.0" prefWidth="100.0">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin></TextField>
+            </children>
+            <children>
+                <Label text="Alapanyagok" />
+                <TextField prefHeight="25.0" prefWidth="40.0" promptText="1. alapanyag">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField prefHeight="25.0" prefWidth="40.0" promptText="2. alapanyag">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField layoutX="10.0" layoutY="114.0" prefHeight="25.0" prefWidth="40.0" promptText="3. alapanyag">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin></TextField>
+                <TextField layoutX="10.0" layoutY="139.0" prefHeight="25.0" prefWidth="40.0" promptText="4. alapanyag">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField layoutX="10.0" layoutY="164.0" prefHeight="25.0" prefWidth="40.0" promptText="5. alapanyag">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Button mnemonicParsing="false" text="Mentés">
+                            <HBox.margin>
+                                <Insets bottom="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" text="Mezők törlése">
+                            <HBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </center>
+    <right>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <TextField promptText="Mennyiség" translateY="79.0" />
+                        <TextField layoutX="10.0" layoutY="10.0" promptText="Mennyiség" translateY="89.0" />
+                        <TextField layoutX="10.0" layoutY="35.0" promptText="Mennyiség" translateY="99.0" />
+                        <TextField layoutX="10.0" layoutY="60.0" promptText="Mennyiség" translateY="109.0" />
+                        <TextField layoutX="10.0" layoutY="85.0" promptText="Mennyiség" translateY="119.0" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </right>
+</BorderPane>

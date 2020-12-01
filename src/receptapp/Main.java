@@ -1,18 +1,23 @@
 package receptapp;
 
-import receptapp.model.*;
-import receptapp.model.dao.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class Main {
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/add_recipe.fxml"));
+        primaryStage.setTitle("Receptkönyv");
+        primaryStage.setResizable(false);
+        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.show();
+    }
+
     public static void main(String[] args) {
-        //Ingredient ingredient = new Ingredient("paradicsom", "db");
-        IngredientDAO ingredientDAO = new IngredientDAOImplement();
-
-        try {
-            //ingredientDAO.createIngredient(ingredient);
-            System.out.println(ingredientDAO.getAllIngredient());
-        } catch (Exception e) {
-            System.out.println("Hiba: " + e);
-        }
+        launch(args);
     }
 }
