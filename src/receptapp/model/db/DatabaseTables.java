@@ -6,22 +6,22 @@ import java.util.Arrays;
 public enum DatabaseTables {
     INGREDIENT(
             "hozzavalo",
-            new ArrayList<String>(Arrays.asList("hozzavalo_nev", "hozzavalo_egyseg")),
+            new ArrayList<String>(Arrays.asList("hozzavalo_id", "hozzavalo_nev", "hozzavalo_egyseg")),
             "(?, ?)"
     ),
     COURSE(
             "fogas",
-            new ArrayList<String>(Arrays.asList("fogas_nev")),
+            new ArrayList<String>(Arrays.asList("fogas_id", "fogas_nev")),
             "(?)"
     ),
     RECIPE(
             "recept",
-            new ArrayList<String>(Arrays.asList("recept_nev", "recept_elkeszitesi_ido", "recept_vegetarianus", "fogas_id")),
+            new ArrayList<String>(Arrays.asList("recept_id", "recept_nev", "recept_elkeszitesi_ido", "recept_vegetarianus", "fogas_id")),
             "(?, ?, ?, ?)"
     ),
     METHOD(
             "elkeszites",
-            new ArrayList<String>(Arrays.asList("recept_id", "elkeszites_sorszam", "elkeszites_leiras")),
+            new ArrayList<String>(Arrays.asList("elkeszites_id", "recept_id", "elkeszites_sorszam", "elkeszites_leiras")),
             "(?, ?, ?)"
     );
 

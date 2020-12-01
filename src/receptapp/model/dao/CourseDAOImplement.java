@@ -35,13 +35,16 @@ public class CourseDAOImplement implements CourseDAO {
     }
 
     @Override
-    public int updateCourse(Course c) throws ClassNotFoundException, SQLException {
-        return 0;
-    }
+    public void deleteCourse(Course c) throws ClassNotFoundException, SQLException {
+        db.connect();
+        this.pstm = db.preparedStatement(DatabaseQueries.delete(DatabaseTables.COURSE));
 
-    @Override
-    public int deleteCourse(Course c) throws ClassNotFoundException, SQLException {
-        return 0;
+        pstm.setInt(1, c.getID());
+
+        db.update();
+        System.out.println("DELETED: " + c.toString());
+
+        db.close();
     }
 
     @Override
@@ -56,7 +59,8 @@ public class CourseDAOImplement implements CourseDAO {
         while (rs.next()) {
             Course c = new Course();
 
-            c.setName(rs.getString(DatabaseTables.COURSE.getTableColumnsArrayList().get(0)));
+            c.setID(rs.getInt(DatabaseTables.COURSE.getTableColumnsArrayList().get(0)));
+            c.setName(rs.getString(DatabaseTables.COURSE.getTableColumnsArrayList().get(1)));
             allCourse.add(c);
         }
 

@@ -38,13 +38,14 @@ public class RecipeDAOImplement implements RecipeDAO {
     }
 
     @Override
-    public int updateRecipe(Recipe r) throws ClassNotFoundException, SQLException {
-        return 0;
-    }
+    public void deleteRecipe(Recipe r) throws ClassNotFoundException, SQLException {
+        db.connect();
+        this.pstm = db.preparedStatement(DatabaseQueries.delete(DatabaseTables.RECIPE));
 
-    @Override
-    public int deleteRecipe(Recipe r) throws ClassNotFoundException, SQLException {
-        return 0;
+        pstm.setInt(1, r.getID());
+
+        db.update();
+        System.out.println("DELETED: " + r.toString());
     }
 
     @Override
@@ -59,10 +60,12 @@ public class RecipeDAOImplement implements RecipeDAO {
         while (rs.next()) {
             Recipe r = new Recipe();
 
-            r.setName(rs.getString(DatabaseTables.RECIPE.getTableColumnsArrayList().get(0)));
-            r.setPrepTime(rs.getInt(DatabaseTables.RECIPE.getTableColumnsArrayList().get(1)));
-            r.setVegetarian(rs.getBoolean(DatabaseTables.RECIPE.getTableColumnsArrayList().get(2)));
-            r.setCourseID(rs.getInt(DatabaseTables.RECIPE.getTableColumnsArrayList().get(3)));
+            r.setID(rs.getInt(DatabaseTables.RECIPE.getTableColumnsArrayList().get(0)));
+            r.setName(rs.getString(DatabaseTables.RECIPE.getTableColumnsArrayList().get(1)));
+            r.setPrepTime(rs.getInt(DatabaseTables.RECIPE.getTableColumnsArrayList().get(2)));
+            r.setVegetarian(rs.getBoolean(DatabaseTables.RECIPE.getTableColumnsArrayList().get(3)));
+            r.setCourseID(rs.getInt(DatabaseTables.RECIPE.getTableColumnsArrayList().get(4)));
+            allRecipe.add(r);
         }
 
         db.close();

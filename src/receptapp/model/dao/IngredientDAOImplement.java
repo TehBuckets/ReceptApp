@@ -36,13 +36,14 @@ public class IngredientDAOImplement implements IngredientDAO {
     }
 
     @Override
-    public int updateIngredient(Ingredient i) throws ClassNotFoundException, SQLException {
-        return 0;
-    }
+    public void deleteIngredient(Ingredient i) throws ClassNotFoundException, SQLException {
+        db.connect();
+        this.pstm = db.preparedStatement(DatabaseQueries.delete(DatabaseTables.INGREDIENT));
 
-    @Override
-    public int deleteIngredient(Ingredient i) throws ClassNotFoundException, SQLException {
-        return 0;
+        pstm.setInt(1, i.getID());
+
+        db.update();
+        System.out.println("DELETED: " + i.toString());
     }
 
     @Override
@@ -57,8 +58,9 @@ public class IngredientDAOImplement implements IngredientDAO {
         while (rs.next()) {
             Ingredient i = new Ingredient();
 
-            i.setName(rs.getString(DatabaseTables.INGREDIENT.getTableColumnsArrayList().get(0)));
-            i.setUnit(rs.getString(DatabaseTables.INGREDIENT.getTableColumnsArrayList().get(1)));
+            i.setID(rs.getInt(DatabaseTables.INGREDIENT.getTableColumnsArrayList().get(0)));
+            i.setName(rs.getString(DatabaseTables.INGREDIENT.getTableColumnsArrayList().get(1)));
+            i.setUnit(rs.getString(DatabaseTables.INGREDIENT.getTableColumnsArrayList().get(2)));
             allIngredient.add(i);
         }
 

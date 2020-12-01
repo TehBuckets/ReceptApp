@@ -37,13 +37,14 @@ public class MethodDAOImplement implements MethodDAO {
     }
 
     @Override
-    public int updateMethod(Method m) throws ClassNotFoundException, SQLException {
-        return 0;
-    }
+    public void deleteMethod(Method m) throws ClassNotFoundException, SQLException {
+        db.connect();
+        this.pstm = db.preparedStatement(DatabaseQueries.delete(DatabaseTables.METHOD));
 
-    @Override
-    public int deleteMethod(Method m) throws ClassNotFoundException, SQLException {
-        return 0;
+        pstm.setInt(1, m.getID());
+
+        db.update();
+        System.out.println("DELETED: " + m.toString());
     }
 
     @Override
@@ -59,8 +60,10 @@ public class MethodDAOImplement implements MethodDAO {
             Method m = new Method();
 
             m.setID(rs.getInt(DatabaseTables.METHOD.getTableColumnsArrayList().get(0)));
-            m.setStepCount(rs.getInt(DatabaseTables.METHOD.getTableColumnsArrayList().get(1)));
-            m.setStepDescription(rs.getString(DatabaseTables.METHOD.getTableColumnsArrayList().get(2)));
+            m.setRecipeID(rs.getInt(DatabaseTables.METHOD.getTableColumnsArrayList().get(1)));
+            m.setStepCount(rs.getInt(DatabaseTables.METHOD.getTableColumnsArrayList().get(2)));
+            m.setStepDescription(rs.getString(DatabaseTables.METHOD.getTableColumnsArrayList().get(3)));
+            allMethod.add(m);
         }
 
         db.connect();

@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface MethodDAO {
     int createMethod(Method m) throws ClassNotFoundException, SQLException;
-    int updateMethod(Method m) throws ClassNotFoundException, SQLException;
-    int deleteMethod(Method m) throws ClassNotFoundException, SQLException;
+    void deleteMethod(Method m) throws ClassNotFoundException, SQLException;
     List<Method> getAllMethod() throws ClassNotFoundException, SQLException;
 }
