@@ -13,18 +13,18 @@
                     <menus>
                         <Menu mnemonicParsing="false" text="File">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Mentés" />
-                                <MenuItem mnemonicParsing="false" text="Kilépés" />
+                                <MenuItem fx:id="miSave" mnemonicParsing="false" text="Mentés" />
+                                <MenuItem fx:id="miExit" mnemonicParsing="false" text="Kilépés" onAction="#exitProgram"/>
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Szerkesztés">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Törlés" />
+                                <MenuItem fx:id="miDelete" mnemonicParsing="false" text="Törlés" onAction="#mifieldEmpty" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Segítség">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="Rólunk" />
+                                <MenuItem fx:id="miAboutus" mnemonicParsing="false" text="Rólunk" onAction="#aboutUs" />
                             </items>
                         </Menu>
                     </menus>
@@ -48,45 +48,45 @@
         <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
             <children>
                 <Label text="Receptnév" />
-                <TextField prefHeight="25.0" prefWidth="100.0">
+                <TextField fx:id="tf1" prefHeight="25.0" prefWidth="100.0">
                     <VBox.margin>
                         <Insets top="5.0" />
                     </VBox.margin></TextField>
             </children>
             <children>
                 <Label text="Alapanyagok" />
-                <TextField prefHeight="25.0" prefWidth="40.0" promptText="1. alapanyag">
+                <TextField fx:id="tf2" prefHeight="25.0" prefWidth="40.0" promptText="1. alapanyag">
                     <VBox.margin>
                         <Insets top="5.0" />
                     </VBox.margin>
                 </TextField>
-                <TextField prefHeight="25.0" prefWidth="40.0" promptText="2. alapanyag">
+                <TextField fx:id="tf3" prefHeight="25.0" prefWidth="40.0" promptText="2. alapanyag">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
                 </TextField>
-                <TextField layoutX="10.0" layoutY="114.0" prefHeight="25.0" prefWidth="40.0" promptText="3. alapanyag">
+                <TextField fx:id="tf4" layoutX="10.0" layoutY="114.0" prefHeight="25.0" prefWidth="40.0" promptText="3. alapanyag">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin></TextField>
-                <TextField layoutX="10.0" layoutY="139.0" prefHeight="25.0" prefWidth="40.0" promptText="4. alapanyag">
+                <TextField fx:id="tf5" layoutX="10.0" layoutY="139.0" prefHeight="25.0" prefWidth="40.0" promptText="4. alapanyag">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
                 </TextField>
-                <TextField layoutX="10.0" layoutY="164.0" prefHeight="25.0" prefWidth="40.0" promptText="5. alapanyag">
+                <TextField fx:id="tf6" layoutX="10.0" layoutY="164.0" prefHeight="25.0" prefWidth="40.0" promptText="5. alapanyag">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
                 </TextField>
                 <HBox prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Button mnemonicParsing="false" text="Mentés">
+                        <Button fx:id="btnSave" mnemonicParsing="false" text="Mentés">
                             <HBox.margin>
                                 <Insets bottom="5.0" right="5.0" top="5.0" />
                             </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Mezők törlése">
+                        <Button fx:id="btnEmpty" mnemonicParsing="false" text="Mezők törlése" onAction="#fieldEmpty">
                             <HBox.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </HBox.margin>
@@ -104,11 +104,11 @@
             <children>
                 <VBox prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <TextField promptText="Mennyiség" translateY="79.0" />
-                        <TextField layoutX="10.0" layoutY="10.0" promptText="Mennyiség" translateY="89.0" />
-                        <TextField layoutX="10.0" layoutY="35.0" promptText="Mennyiség" translateY="99.0" />
-                        <TextField layoutX="10.0" layoutY="60.0" promptText="Mennyiség" translateY="109.0" />
-                        <TextField layoutX="10.0" layoutY="85.0" promptText="Mennyiség" translateY="119.0" />
+                        <TextField fx:id="tf7" promptText="Mennyiség" translateY="79.0" />
+                        <TextField fx:id="tf8" layoutX="10.0" layoutY="10.0" promptText="Mennyiség" translateY="89.0" />
+                        <TextField fx:id="tf9" layoutX="10.0" layoutY="35.0" promptText="Mennyiség" translateY="99.0" />
+                        <TextField fx:id="tf10" layoutX="10.0" layoutY="60.0" promptText="Mennyiség" translateY="109.0" />
+                        <TextField fx:id="tf11" layoutX="10.0" layoutY="85.0" promptText="Mennyiség" translateY="119.0" />
                     </children>
                 </VBox>
             </children>
